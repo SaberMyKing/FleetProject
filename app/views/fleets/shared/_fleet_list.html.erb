@@ -1,0 +1,42 @@
+
+<br>
+<div id="search_bar"> <%= render 'fleets/shared/dropdown_menu' %> </div>
+<br>
+<br>
+<div id="search_bar"> <%= render 'fleets/shared/search_bar' %> </div>
+<br>
+<br>
+
+<table class="table table-striped">
+
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>车队名</th>
+    <th>联系人</th>
+    <th>联系人号码</th>
+    <th>车队驻地</th>
+    <th>管理和编辑</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% if @fleets.present? %>
+      <% @fleets.each do |fleet| %>
+        <tr>
+          <td><%= fleet.id %></td>
+          <td><%= fleet.name %></td>
+          <td><%= fleet.manager %></td>
+          <td><%= fleet.mobile %></td>
+          <td><%= fleet.location %></td>
+          <td>
+            <%= link_to 'Delete', {:controller =>'fleets',:action => 'soft_destroy',:id =>fleet.id}, method: :post %>&nbsp;
+            <%= link_to 'Edit', {:controller =>'fleets',:action => 'edit',:id =>fleet.id} %>&nbsp;
+            <%= link_to 'Detail', {:controller =>'fleets',:action => 'detail',:id =>fleet.id}, method: :post %>&nbsp;
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr><td colspan="6">no data</td></tr>
+    <% end %>
+  </tbody>
+</table>

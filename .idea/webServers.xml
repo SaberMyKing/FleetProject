@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d0e5079e-ae73-4d6d-9c70-4a101f18fc45" name="FleetProject" url="http://10.7.144.18">
+        <fileTransfer host="10.7.144.18" port="22" rootFolder="/opt/deploy/env/test/ruby_tutorial/ArthurRuby/FleetProject" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

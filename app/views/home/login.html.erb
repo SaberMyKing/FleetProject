@@ -1,0 +1,42 @@
+<h1>
+
+
+  <center>
+
+    <br>
+    <br>
+
+    <h1>WhaleMove Fleet System</h1>
+
+    <br>
+    <br>
+
+
+    <%= form_for :user_login, url: fleets_index_path do |f| %>
+
+      <table class="margin_center">
+        <tr>
+          <td><%=  f.label 'User Name'%></td>
+          <td><%= f.text_field :username %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label 'Password' %></td>
+          <td><%= f.text_field :password %></td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <br>
+            <%= f.submit "Login"%>
+          </td>
+        </tr>
+
+      </table>
+
+    <% end %>
+
+
+  </center>
+
+</h1>

@@ -1,0 +1,42 @@
+
+<br>
+<div id="dropdown_menu"> <%= render 'drivers/shared/dropdown_menu'%> </div>
+
+<br>
+<br>
+<div id="search_bar"> <%= render 'drivers/shared/search_bar' %> </div>
+<br>
+<br>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>司机姓名</th>
+    <th>手机号码</th>
+    <th>所在的车队</th>
+    <th>身份证号码</th>
+    <th>管理和编辑</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% if @drivers.present? %>
+      <% @drivers.each do |driver| %>
+      <tr>
+        <td><%= driver.id %></td>
+        <td><%= driver.name %></td>
+        <td><%= driver.mobile %></td>
+        <td><%= Fleet.find(driver.fleet_id).name rescue nil %></td>
+        <td><%= driver.id_card %></td>
+        <td>
+          <%= link_to 'Delete', {:controller =>'drivers',:action => 'soft_destroy',:id =>driver.id}, method: :post %>&nbsp;
+          <%= link_to 'Edit', {:controller =>'drivers',:action => 'edit',:id =>driver.id} %>&nbsp;
+          <%= link_to 'Detail', {:controller =>'drivers',:action => 'detail',:id =>driver.id}, method: :post %>&nbsp;
+        </td>
+      </tr>
+      <% end %>
+    <% else %>
+    <tr><td colspan="6">no data</td></tr>
+    <% end %>
+  </tbody>
+</table>
+

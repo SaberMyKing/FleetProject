@@ -1,0 +1,16 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: localhost 
+  username: arthur
+  password: arthur
+
+development:
+  <<: *default
+  database: pacific_arthur_blog_development
+
+test:
+  <<: *default
+  database: pacific_arthur_fleet_test

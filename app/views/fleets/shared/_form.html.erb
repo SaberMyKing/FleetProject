@@ -1,0 +1,49 @@
+<%= form_for @fleet, url: submit_name do |f| %>
+
+  <br>
+  <% if @fleet.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@fleet.errors.count, "error") %> prohibited
+        this fleet from being saved:
+      </h2>
+      <ul>
+        <% @fleet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :enabled %>
+  </p>
+
+  <p>
+    <%= f.label :manager %><br>
+    <%= f.text_field :manager %>
+  </p>
+
+  <p>
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile %>
+  </p>
+
+  <p>
+    <%= f.label :office_number %><br>
+    <%= f.text_field :office_number %>
+  </p>
+
+  <p>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </p>
+
+  <p>
+    <%= f.submit '确认提交' %>
+  </p>
+
+<% end %>

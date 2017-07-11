@@ -1,0 +1,43 @@
+<%= form_for @driver, url: submit_name do |f| %>
+
+  <% if @driver.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@driver.errors.count, "error") %> prohibited
+        this driver from being saved:
+      </h2>
+      <ul>
+        <% @driver.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :enabled %>
+  </p>
+
+  <p>
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile %>
+  </p>
+
+  <p>
+    <%= f.label :fleet_id %><br>
+    <%= f.text_field :fleet_id %>
+  </p>
+
+  <p>
+    <%= f.label :id_card %><br>
+    <%= f.text_field :id_card %>
+  </p>
+
+  <p>
+    <%= f.submit '确认提交' %>
+  </p>
+
+<% end %>

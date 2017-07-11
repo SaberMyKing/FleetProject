@@ -1,0 +1,33 @@
+<center>
+
+  <br>
+  <br>
+  <h1>Detail</h1>
+  <br>
+  <br>
+
+  <div style="border: 1px solid #000000; width: 1000px; height: 1000px; margin: 0 auto;">
+
+    <br>
+    <%= render 'drivers/shared/dropdown_menu'%>
+    <br>
+    <br>
+    <%= render 'drivers/shared/driver_detail' %>
+
+    <% if @fleet.present? %>
+
+      <br>
+      <br>
+      <h1>所在车队的信息</h1>
+      <%= render 'fleets/shared/fleet_detail'%>
+
+    <% else %>
+      <h1>车队信息错误</h1>
+      <br><br>
+    <% end %>
+
+
+
+
+  </div>
+</center>
