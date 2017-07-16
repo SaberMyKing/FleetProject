@@ -9,8 +9,8 @@ default: &default
 
 development:
   <<: *default
-  database: pacific_arthur_blog_development
+  database: fleet_project_development
 
 test:
   <<: *default
-  database: pacific_arthur_fleet_test
+  database: fleet_project_test
