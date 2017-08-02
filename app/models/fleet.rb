@@ -5,6 +5,8 @@ class Fleet < ActiveRecord::Base
   validates :mobile, presence: true
   #validates :enabled, presence: true
 
+  has_many :dirvers
+
   def self.search params
 
     if params['search_str'].blank?

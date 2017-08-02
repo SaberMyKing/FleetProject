@@ -5,6 +5,8 @@ class Driver < ActiveRecord::Base
   validates :fleet_id, presence: true
   validates :id_card, presence: true
 
+  belongs_to :fleet
+
   def self.search params
 
     if params['search_str'].blank?

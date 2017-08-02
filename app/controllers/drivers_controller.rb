@@ -9,7 +9,7 @@ class DriversController < ApplicationController
   end
 
   def create
-    @driver = Driver.new(driver_params)
+    @driver = Fleet.find(driver_params['fleet_id']).drivers.create driver_params
 
     if @driver.save
       redirect_to '/home/index?page_tag=true'
@@ -32,9 +32,7 @@ class DriversController < ApplicationController
 
   def detail
     @driver = Driver.find params[:id]
-
-    @fleet = Fleet.find @driver[:fleet_id] rescue nil
-
+    @fleet = Fleet.joins(:drivers).where("drivers.id = ?", params['id']).first
   end
 
   def update
